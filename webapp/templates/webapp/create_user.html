@@ -1,0 +1,59 @@
+{% load static %}
+
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial=scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <title>Create a New User</title>
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'webapp/min.css' %}" />
+    <link href="https://fonts.googleapis.com/css?family=Heebo" rel="stylesheet">
+    <script src="jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script>
+     $(function() {
+       $('#main').addClass('backgroundOverlay'); 
+     });
+    </script>    
+
+</head>
+
+ <body>
+  <div id="main">
+  <h1>Create User</h1>
+  <!--<img src="{% static 'media/inventure.png' %}">-->
+  <div id="create_form">
+  <form method="post" class="login">
+    {% csrf_token %}
+    <span class="has-float-label">
+      <input class="form-control" placeholder="Enter First Name" type="text" name="username" autofocus="" required="" id="id_username" maxlength="254">
+      <label for="id_first_name">First Name</label>
+    </span>
+    
+    <span class="has-float-label">
+      <input class="form-control" placeholder="Enter Last Name" type="text" name="username" autofocus="" required="" id="id_username" maxlength="254">
+      <label for="id_last_name">Last Name</label>
+    </span>
+    <br>
+    <span class="has-float-label">
+      <input class="form-control" placeholder="Enter Email Address" type="text" name="username" autofocus="" required="" id="id_username" maxlength="254">
+      <label for="id_username">Email Address</label>
+    </span>
+    <br>
+    <span class="has-float-label">
+      <input class="form-control" placeholder="Enter Password" type="password" name="password" autofocus="" required="" id="id_password" maxlength="254">
+      <label for="id_password">Password</label>
+    </span>
+    <span class="has-float-label">
+      <input class="form-control" placeholder="Enter Password Again!" type="password" name="password" autofocus="" required="" id="id_password" maxlength="254">
+      <label for="id_password2">Password Again</label>
+    </span>
+    
+    <button type="submit">Join inVenture+</button>
+  </form>
+  </div>
+  </div>
+</body>
