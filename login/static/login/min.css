@@ -1,0 +1,202 @@
+body {
+    font-family: 'helvetica neue', 'Heebo', sans-serif;
+}
+
+#main {
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: bottom;
+    padding: 0;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+}
+
+#main::before {
+    content: "";
+    width: 100vw;
+    height: 100vh;
+    background: url('../media/create_background.jpeg') fixed;
+    background-size: cover;
+    background-position: bottom;
+    position: absolute;
+    -webkit-filter: grayscale(100%)  brightness(40%) contrast(110%);
+    filter: grayscale(100%) brightness(40%) contrast(110%);
+    padding: 0;
+    z-index: -1;
+    top: 0px;
+    left: 0px;
+    opacity: 0.4;
+}
+
+
+.backgroundOverlay {
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    overflow: auto;
+    top: 0px;
+    left: 0px;
+    background: rgba(72, 8, 113, 0.5);
+    z-index: 1;
+}
+
+#create_form {
+    background-color: #fff;
+    color: #3b065f;
+    padding: 4%;
+    margin: 4%;
+    line-height: 40px;
+    font-size: 12px;
+    font-weight: bold;
+    box-shadow: 0px 0px 5px 0px #3d1f54;
+}
+
+h1 {
+    margin: 4%;
+    line-height: 30px;
+    color: #fff;
+    padding: 0% 1%;
+}
+
+
+#login {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Helvetica Neue';
+    font-weight: 300;
+}
+
+#left_col {
+    width: 55vw;
+    height: 100vh;
+    background-color: #f1f1f1;
+    top: 0px;
+    left: 0px;
+}
+
+#left_col img {
+    width: 250px;
+    padding :20px;
+}
+
+h2 {
+    padding: 7%;
+    padding-bottom: 0px;
+    padding-top: 2%;
+    font-size: 44px;
+    color: #202044;
+    line-height: 44px;
+}
+h3 {
+    padding: 0% 7%;
+    padding-top: 0px;
+    margin-top: -20px;
+    font-weight: 400;
+    font-size: 28px;
+}
+
+#left_col p {
+    padding: 7%;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+#left_col button {
+    margin: 7%;
+    font-size: 14px;
+    padding: 14px;
+    text-transform: uppercase;
+    font-weight: 300;
+    color: #f1f1f1;
+    border-radius: 0px;
+    background-color: #d1771a;
+    border: 0px;
+}
+
+#right_col {
+    width: 45vw;
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+    position: absolute;
+    margin-left: 55vw;
+    background-color: #4d2b58;
+    color: #fff;
+}
+
+#right_col h3 {
+    padding: 10%;
+    padding-top: 40%;
+    margin-top: 20px;
+    font-weight: 400;
+    font-size: 28px;
+}
+
+#right_col button {
+    font-size: 14px;
+    padding: 14px;
+    text-transform: uppercase;
+    font-weight: 300;
+    color: #4c2c57;
+    border-radius: 0px;
+    background-color: #ffffff;
+    border: 0px;
+}
+
+
+#forms form {
+    background-color: #1f1f1f;
+    width: 85%;
+    padding: 40px;
+    border-radius: 5px;
+    height: 100%;
+    overflow: scroll;
+    margin-top: -15px;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 20px;
+    overflow-y: scroll;
+    font-family: "Helvetica";
+}
+
+input[type="text"], input[type="date"] {
+    background-color: transparent;
+    color:#dedede;
+    height: 50px;
+    margin: 10px;
+    font-size: 16px;
+    line-height: 60px;
+    width: 260px;
+    font-family: "Helvetica";
+    position: relative;
+    font-weight: 100;
+    border: 1px solid #3a3a3a;
+    padding: 10px;
+}
+input::placeholder {
+    font-size: 14px;
+    font-family: "Helvetica";
+    color: #715555;
+}
+span#select_input label.suffix {
+    font-size: 10px;
+    color: #7bb5fa;
+    margin-left: 0px;
+}
+select {
+    border: 0px;
+    background-color: transparent;
+    padding: 14px;
+    margin-left: 10px;
+    font-size: 14px;
+    font-weight: 100;
+    color:#ffffff;
+    background-color: rgba(58, 58, 58, 0.57);
+    font-family: "Helvetica";
+    width: 20%;
+}

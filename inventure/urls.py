@@ -17,7 +17,9 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 urlpatterns = [
-    url(r'^', include('webapp.urls')),
+    url(r'^', include('login.urls')),
+    url(r'^messenger/', include('messaging.urls')),
+    url(r'^matches/', include('users.urls')),
     url(r'^admin/', admin.site.urls),
 
 ]
