@@ -7,11 +7,7 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from custom_user.models import AbstractEmailUser
 from django.conf import settings
-from django.core.mail import send_mail
-from fernet_fields import EncryptedCharField
-from django_countries.fields import CountryField
 
 from django.db import models
 
@@ -21,7 +17,7 @@ class VentureCapitalist(models.Model):
     
     company_city = models.CharField(max_length=2)
     
-    company_mission = comment = models.TextField(verbose_name="Mission statement of the company.", blank=True)
+    company_mission = models.TextField(verbose_name="Mission statement of the company.", blank=True)
     company_fund_size = models.IntegerField(null=True)
     stages_interested = models.CharField(max_length=2)
     
@@ -40,7 +36,7 @@ class Entrepreneur(models.Model):
     
     company_city = models.CharField(max_length=2)
     
-    company_mission = comment = models.TextFie 
+    company_mission = models.TextField(verbose_name="Company's mission statement", blank=True)
     current_stage = models.CharField(max_length=2)
     
     locations_interested = models.CharField(max_length=2)

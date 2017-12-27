@@ -8,13 +8,15 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.decorators import permission_required
 from django.contrib.auth.views import logout
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 app_name = 'login'
 
 urlpatterns = [
     url(r'^create_user/$', views.create_user, name='create_user'),
-    
-    url(r'^', auth_views.login, {'template_name': 'login.html'}, name='login'),
-    url(r'^login/$', auth_views.logout, {'template_name': 'login.html'}, name='logout'),
+    url(r'^login/$', auth_views.login, {'template_name': 'login/login.html'}, name='login'),
+    url(r'^logout/$', auth_views.logout, {'template_name': 'login.html'}, name='logout'),
    
    
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

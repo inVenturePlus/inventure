@@ -9,7 +9,7 @@
     
     <title>Create a New User</title>
     
-    <link rel="stylesheet" type="text/css" href="{% static 'webapp/min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'login/create.css' %}" />
     <link href="https://fonts.googleapis.com/css?family=Heebo" rel="stylesheet">
     <script src="jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
@@ -26,7 +26,7 @@
   <h1>Create User</h1>
   <!--<img src="{% static 'media/inventure.png' %}">-->
   <div id="create_form">
-  <form method="post" class="login">
+  <form method="post">
     {% csrf_token %}
     <span class="has-float-label">
       <input class="form-control" placeholder="Enter First Name" type="text" name="username" autofocus="" required="" id="id_username" maxlength="254">
@@ -52,7 +52,7 @@
       <label for="id_password2">Password Again</label>
     </span>
     
-    <button type="submit">Join inVenture+</button>
+    <center><button type="submit">Join inVenture+</button></center>
   </form>
   </div>
   </div>
