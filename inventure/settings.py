@@ -83,7 +83,7 @@ DATABASES = {
         'USER': 'shirleykabir',
         'PASSWORD': '1th9c92017',
         'HOST': '127.0.0.1',
-        'PORT': '',
+        'PORT': '3306',
         'OPTIONS': {
             'init_command': 'SET innodb_strict_mode=1',
         },
@@ -130,3 +130,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = 'login'
+
+AUTH_USER_MODEL = 'login.User'
