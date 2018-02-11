@@ -21,25 +21,31 @@
 
 <div id="login">
     <div id="left_col">
-        <img src="{% static "login/inventure_logo.png" %}">
+        <img src="{% static "login/media/inventure_logo.png" %}">
         <h2>Welcome</h2>
         <h3>Register for an account here.</h3>
         <p>[ About inVenture+ here. ]</p>
-        <button>Register Here</button>
+        <br>
+        <br>
+        <a href="{% url 'login:create_user'%}">Register Here</a>
+            
     </div>
     <div id="right_col">
         <h3>Or login to your account now.</h3>
+        <form method="post">
+        {% csrf_token %}
         <span class="has-float-label">
-            <input class="form-control" placeholder="Enter Email" type="text" name="email" autofocus="" required="" id="id_email" maxlength="254">
-            <label for="id_email">Email</label>
-          </span>
+            <input class="form-control" placeholder="Enter Email" type="text" name="username" autofocus="" required="" id="id_username" maxlength="254">
+            <label for="id_username">Email</label>
+        </span>
         <br>
-          <span class="has-float-label">
+        <span class="has-float-label">
             <input class="form-control" placeholder="Enter Password" type="password" name="password" autofocus="" required="" id="id_password" maxlength="254">
             <label for="id_password">Password</label>
-          </span><br>
-        <button>Login</button> <button id="forgot">Forgot password?</button>
-    </div>
+        </span><br>
+        <button type="submit">Login</button> <a href="">Forgot Password?</a>
+        </form>
+        </div>
 </div>
 
 </body></html>

@@ -24,5 +24,6 @@ urlpatterns = [
     url(r'^messenger/', include('messaging.urls')),
     url(r'^matches/', include('users.urls')),
     url(r'^admin/', admin.site.urls),
+    url('', include('social.apps.django_app.urls', namespace='social')),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
