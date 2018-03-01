@@ -1,16 +1,16 @@
 body {
     font-family: 'helvetica neue', 'Heebo', sans-serif;
     height: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 #main {
     width: 100vw;
-    height: 100vh;
+    height: auto;
     background-size: cover;
     background-position: bottom;
     padding: 0;
-    position: fixed;
+    position: absolute;
     top: 0px;
     left: 0px;
     z-index: 1;
@@ -19,8 +19,8 @@ body {
 #main::before {
     content: "";
     width: 100vw;
-    height: 100vh;
-    background: url('../login/media/create_background.jpeg') fixed;
+    height: 100%;
+    background: url('../login/media/create_background.jpeg') scroll;
     background-size: cover;
     background-position: bottom;
     position: absolute;
@@ -55,8 +55,8 @@ body {
     font-size: 12px;
     font-weight: bold;
     box-shadow: 0px 0px 5px 0px #3d1f54;
-    width: 40%;
-    margin-left: 30%;
+    width: 60%;
+    margin-left: 20%;
 }
 
 h1 {
@@ -157,20 +157,6 @@ select {
     border-top-left-radius: 0;
     margin-left: -1px; }
 
-input[type="text"], input[type="date"] {
-    background-color: transparent;
-    color:#dedede;
-    height: 50px;
-    margin: 10px;
-    font-size: 16px;
-    line-height: 60px;
-    width: 260px;
-    font-family: "Roboto";
-    position: relative;
-    font-weight: 100;
-    border: 1px solid #3a3a3a;
-    padding: 10px;
-}
 input::placeholder {
     font-size: 14px;
     font-family: "Helvetica Neue";
@@ -194,18 +180,7 @@ select {
     width: 20%;
 }
 
-input[type="submit"] {
-    float: right;
-    background-color: transparent;
-    border: 1px solid #6a5977;
-    font-family: Roboto Mono;
-    text-transform: uppercase;
-    padding: 5px 10px;
-    color: #62516f;
-    font-size: 12px;
-}
-
-input[type="text"], input[type="password"]
+input[type="text"], input[type="password"], input[type="email"]
 {
     width: 49%;
     margin: 0;
@@ -297,4 +272,42 @@ label .tooltip {
 
 label:hover .tooltip {
     visibility: visible;
+}
+
+
+#account_type  ul {
+    list-style: none;
+}
+#account_type  li {
+    display: inline-block;
+    margin-right: 15px;
+}
+#account_type  input {
+    visibility:hidden;
+}
+#account_type label {
+    cursor: pointer;
+    font-family: Helvetica Neue, "Heebo";
+    font-size: 16px;
+    padding: 30px 70px;
+    background-color: #c7c6c5;
+    color: #fff;
+    font-weight: 300;
+    letter-spacing: 1px;
+    margin-right: -40px;
+
+}
+#account_type  input:checked + label {
+    background: #ff9f38cc;
+}
+#account_type {
+    margin-top: -10px;
+}
+
+h1 img {
+    width: 120px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    margin: 50px;
 }
