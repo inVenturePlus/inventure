@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'multiselectfield',
     'social_django',
     'social.apps.django_app.default',
+    'avatar',
 ]
 
 MIDDLEWARE = [

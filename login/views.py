@@ -38,7 +38,7 @@ def EntrepreneurView(request):
 def VCView(request):
     user = request.user
     user_info = UserForm(request.POST or None, instance=user)
-    
+
     return render(request, "../../users/templates/users/dashboard.html", {"user" : user, "user_info": user_info})
 
 
@@ -48,7 +48,7 @@ def CreateUser(request):
         if (form.is_valid()):
             new_user = form.save(commit=False)
             new_user.save()
-            if(new_user.entrepreneur):
+            if(new_user.entrepreneur == 2):
                 new_user.createE();
             else:
                 new_user.createVC();

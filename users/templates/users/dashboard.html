@@ -1,4 +1,5 @@
 {% load static %}
+{% load avatar_tags %}
 
 <html lang="en"><head>
     <meta charset="utf-8">
@@ -6,18 +7,18 @@
     <meta name="viewport" content="width=device-width, initial=scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    
+
     <title>Dashboard</title>
-    
+
     <link rel="stylesheet" type="text/css" href="{% static 'users/dashboard.css' %}" />
     <link href="https://fonts.googleapis.com/css?family=Heebo" rel="stylesheet">
     <script src="jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
     <script>
      $(function() {
-       $('#header').addClass('backgroundOverlay'); 
+       $('#header').addClass('backgroundOverlay');
      });
-    </script>    
+    </script>
 
 </head>
 
@@ -25,12 +26,17 @@
   <div id="main">
   <div id="header">
     <h1>Welcome {{user.first_name}} {{user.last_name}}.</h1>
-    <div class="logo"><img src="{% static "users/media/inventure_logo.png" %}"></div>
+    <div class="logo"><img src="{% static "users/media/inventure_logo_white.png" %}"></div>
     <div id="nav">
      <a href="">dashboard</a>
      <a href="">about inventure+</a>
      <a href="">contact + faq</a>
     </div>
+    <!-- <div id="user_info">
+      <a href="{% url 'avatar_change' %}">Change your avatar</a>
+      {% avatar user 65 %}
+    </div> -->
+
   </div>
   <!--<img src="{% static 'media/inventure.png' %}">-->
   <div id="information_form">
@@ -38,23 +44,32 @@
    <div id="messaging">
     <center>
      <img src="{% static "users/media/chat-2.png" %}">
+     <p>
+       messaging
+     </p>
     </center>
-    
+
    </div>
   </a>
   <a href="{% url 'users:questions'%}">
    <div id="questions">
     <center>
      <img src="{% static "users/media/paper-plane.png" %}">
+     <p>
+       questions
+     </p>
     </center>
    </div>
   </a>
-  <a href="google.com">
+  <a href="{% url 'users:matches'%}">
    <div id="matches">
     <center>
      <img src="{% static "users/media/star.png" %}">
+     <p>
+       matches
+     </p>
     </center>
-    
+
    </div>
   </a>
   </div>

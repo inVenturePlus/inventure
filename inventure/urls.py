@@ -25,5 +25,5 @@ urlpatterns = [
     url(r'^matches/', include('users.urls')),
     url(r'^admin/', admin.site.urls),
     url('', include('social.apps.django_app.urls', namespace='social')),
-
+    url(r'^avatar/', include('avatar.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

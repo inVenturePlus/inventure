@@ -63,9 +63,10 @@ body {
 h1 {
     margin: 4%;
     line-height: 30px;
-    font-size: 34px;
+    font-size: 40px;
     color: #fff;
     font-weight: 300;
+    font-family: Heebo;
     padding: 0% 1%;
     bottom: 0px;
     position:  absolute;
@@ -97,7 +98,7 @@ h3 {
     width: 65vw;
     height: 50vh;
     background-color: #d17717;
-    background: linear-gradient(#7d480fb8, #7d480f69, #7d480fb8), url('../users/media/comms.jpeg') no-repeat center; 
+    background: linear-gradient(#7d480fb8, #7d480f69, #7d480fb8), url('../users/media/comms.jpeg') no-repeat center;
     background-size: cover;
     display: inline-block;
 }
@@ -106,7 +107,7 @@ h3 {
     margin: 0px 0px 5px 0px;
     width: 33vw;
     height: 50vh;
-    background: linear-gradient(#1b1b5ab8, #27276769, #1b1b5ab8), url('../users/media/path.jpeg') no-repeat center; 
+    background: linear-gradient(#1b1b5ab8, #27276769, #1b1b5ab8), url('../users/media/path.jpeg') no-repeat center;
     background-size: cover;
     display: inline-block;
 }
@@ -115,7 +116,7 @@ h3 {
     margin: 0px 5px 5px 5px;
     width: 40vw;
     height: 50vh;
-    background: linear-gradient(#491f56b8, #491f5669, #491f56b8), url('../users/media/coffee.jpg') no-repeat center; 
+    background: linear-gradient(#491f56b8, #491f5669, #491f56b8), url('../users/media/coffee.jpg') no-repeat center;
     background-size: cover;
     display: inline-block;
 }
@@ -173,4 +174,12 @@ h3 {
   -ms-transition: all 600ms ease;
   -o-transition: all 600ms ease;
   transition: all 600ms ease;
+}
+
+#information_form p {
+    font-family: Heebo;
+    font-size: 20px;
+    text-transform:  uppercase;
+    font-weight: bold;
+    color: #fff;
 }

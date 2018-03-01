@@ -1,0 +1,99 @@
+{% load static %}
+{% load avatar_tags %}
+
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial=scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Questions</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'users/questionaire.css' %}" />
+    <link href="https://fonts.googleapis.com/css?family=Heebo" rel="stylesheet">
+    <script src="jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script>
+     $(function() {
+       $('#main').addClass('backgroundOverlay');
+     });
+     $(document).ready(function() {
+        $('#map').usmap({});
+      });
+    </script>
+    <script src="js/jquery.js"></script>
+
+</head>
+
+ <body>
+  <div id="main">
+  <h1>Questions -- Entrepreneur <img src="{% static "login/media/inventure_logo.png" %}"></h1>
+
+  <div id="create_form">
+  <form method="post">{% csrf_token %}
+    <!-- {{ user_form.as_table }} -->
+    <span class="has-float-label">
+       {{ user_form.company_name }}
+       <label for="id_company_name">Company Name</label>
+    </span>
+    <span class="has-float-label">
+       {{ user_form.company_state }}
+       <label for="id_company_name">Company State</label>
+    </span>
+    <span class="has-float-label">
+       {{ user_form.company_city }}
+       <label for="id_company_city">Company City</label>
+    </span>
+    <br />
+    <br />
+    <span class="has-float-label">
+       <label for="id_company_mission">Company Mission</label>
+    </span>
+    {{ user_form.company_mission }}
+    <br />
+    <br />
+    <br />
+    <span class="has-float-label">
+       <label for="id_company_mission">Stages Interested</label>
+    </span>
+    {{ user_form.stages_interested }}
+    <br />
+    <span class="has-float-label">
+       <label for="id_company_mission">Stages Avoid</label>
+    </span>
+    {{ user_form.stages_avoid }}
+    <br />
+    <span class="has-float-label">
+       <label for="id_company_mission">Locations Interested</label>
+    </span>
+    {{ user_form.locations_interested }}
+    <br />
+    <span class="has-float-label">
+       <label for="id_company_mission">Locations Avoid</label>
+    </span>
+    {{ user_form.locations_avoid }}
+    <br />
+    <span class="has-float-label">
+       <label for="id_sectors_interested">Sectors Interested</label>
+    </span>
+    {{ user_form.sectors_interested }}
+    <br />
+    <span class="has-float-label">
+       <label for="id_sectors_interested">Sectors Avoid</label>
+    </span>
+    {{ user_form.sectors_avoid }}
+    <br />
+    <span class="has-float-label">
+       {{ user_form.check_size }}
+       <label for="id_check_size">Check Size</label>
+    </span>
+    <br /><br />
+    <span class="has-float-label">
+       {{ user_form.previous_investments }}
+       <label for="id_previous_investments">Previous Investments</label>
+    </span>
+<br />
+    <input type="submit" value="Let's Find a Match">
+  </form>
+</body>

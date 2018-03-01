@@ -17,7 +17,6 @@ app_name = 'login'
 def dispatch_by_role(entrepreneur_view, vc_view):
     def get_view(request, **kwargs):
         if (is_entrepreneur(request.user)):
-            print("yes")
             return entrepreneur_view(request, **kwargs)
         else:
             return vc_view(request, **kwargs)
@@ -32,7 +31,9 @@ urlpatterns = [
 
     url(r'^create_user/$', login_views.CreateUser, name='create_user'),
     url(r'^login/$', auth_views.login, {'template_name': 'login/login.html'}, name='login'),
-    url(r'^logout/$', auth_views.logout, {'template_name': 'login.html'}, name='logout'),
+    url(r'^logout/$', auth_views.logout, {'template_name': 'login/login.html'}, name='logout'),
     url('', include('social.apps.django_app.urls', namespace='social')),
+    url(r'^avatar/', include('avatar.urls')),
+    url(r'^self/', include('users.urls')),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

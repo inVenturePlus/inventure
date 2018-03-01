@@ -11,6 +11,5 @@ app_name = 'users'
 urlpatterns = [
     url(r'^questionaire/$', user_views.Questionaire, name='questions'),
     url(r'^matches/$', user_views.MatchResults, name='matches'),
+    url(r'^avatar/', include('avatar.urls')),
 ]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-
-

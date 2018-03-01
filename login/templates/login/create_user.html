@@ -1,4 +1,5 @@
 {% load static %}
+{% load avatar_tags %}
 
 <html lang="en"><head>
     <meta charset="utf-8">
@@ -6,29 +7,29 @@
     <meta name="viewport" content="width=device-width, initial=scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    
+
     <title>Create a New User</title>
-    
+
     <link rel="stylesheet" type="text/css" href="{% static 'login/create.css' %}" />
     <link href="https://fonts.googleapis.com/css?family=Heebo" rel="stylesheet">
     <script src="jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
     <script>
      $(function() {
-       $('#main').addClass('backgroundOverlay'); 
+       $('#main').addClass('backgroundOverlay');
      });
-    </script>    
+    </script>
 
 </head>
 
  <body>
   <div id="main">
   <h1>Create User <img src="{% static "login/media/inventure_logo.png" %}"></h1>
-  
+
   <div id="create_form">
   <form method="post">{% csrf_token %}<div id="account_type">
     <p>Account Type</p><ul id="id_entrepreneur">
-        
+
     <br>
     <center>
     <li>
@@ -43,24 +44,24 @@
     <br>
     </ul>
     </div>
-    
+
     <span class="has-float-label">
        <input class="form-control" placeholder="Enter Email Address" type="email" name="email" autofocus="" required="" id="id_email" maxlength="255">
        <label for="id_email">Email Address</label>
     </span>
-    
+
     <span class="has-float-label">
        <input class="form-control" placeholder="Enter Company/Firm Name" type="text" name="company_name" required="" id="id_company_name" maxlength="255">
        <label for="id_company_name">Company Name</label>
     </span>
-    
-    
-    
+
+
+
     <span class="has-float-label">
        <input class="form-control" placeholder="Enter First Name" type="text" name="first_name" required="" id="id_first_name" maxlength="150">
        <label for="id_first_name">First Name</label>
     </span>
-    
+
     <span class="has-float-label">
        <input class="form-control" placeholder="Enter Last Name" type="text" name="last_name" required="" id="id_last_name" maxlength="150">
        <label for="id_last_name">Last Name</label>
@@ -83,8 +84,8 @@
        <input class="form-control" placeholder="Enter Password Again" type="password" name="confirm_password" required="" id="id_confirm_password">
        <label for="id_confirm_password">Confirm Password</label>
     </span>
-    
-    <center><button type="submit">Join inVenture+</button></center>
+
+    <center><input type="submit" value="Join inVenture+"></center>
   </form></div>
   </div>
 </body>
