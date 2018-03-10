@@ -71,4 +71,11 @@ class Entrepreneur(models.Model):
 class Matches(models.Model):
     entrepreneur = models.OneToOneField(Entrepreneur, on_delete=models.CASCADE, primary_key=False)
     venturecapital = models.OneToOneField(VentureCapital, on_delete=models.CASCADE, primary_key=False)
+
     match_score = models.IntegerField(null=False)
+
+    class Meta:
+       unique_together = (("entrepreneur", "venturecapital"))
+
+    def __str__(self):
+       return self.entrepreneur + ", " + self.venturecapital

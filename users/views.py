@@ -42,11 +42,26 @@ def GenerateMatches(request):
     if request.method == 'POST':
         if(user.entrepreneur == 2):
             form =  EntrepreneurForm(request.POST)
+            form.save()
+            MakeMatchInDatabaseE(user.pk)
         else:
             form =  VentureCapitalForm(request.POST)
+            form.save()
+            MakeMatchInDatabaseV(user.pk)
     else:
         if(user.entrepreneur == 2):
             form =  EntrepreneurForm()
         else:
             form =  VentureCapitalForm()
-    company_name = form.cleaned_data['company_name']
+    # company_name = form.cleaned_data['company_name']
+
+# Generates a row @ matches database w/ match scores.
+def MakeMatchInDatabaseE(e_id):
+    all_v = VentureCapital.objects.all()
+    # The `iterator()` method ensures only a few rows are fetched from
+    # the database at a time, saving memory.
+    for v in all_v.iterator():
+        score = AlexMatchAlgo(e_id, v.pk)
+        entrep = Entrepreneur.objects.get(pk=e_id)
+        venture = VentureCapital.objects.get(pk=v.pk)
+        Matches(entrepreneur=entrep, venturecapital=venture, match_score=score)
