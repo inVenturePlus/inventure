@@ -7,6 +7,7 @@ from login.models import MyCustomEmailUser
 from users.forms import *
 from users.models import *
 from django.shortcuts import (get_object_or_404, get_list_or_404, render, render_to_response)
+from users import pairing_algo2 as algo
 
 def Questionaire(request):
     user = request.user
@@ -47,15 +48,16 @@ def GenerateMatches(request):
         else:
             form =  VentureCapitalForm(request.POST)
             form.save()
-            MakeMatchInDatabaseV(user.pk)
+            MakeMatchInDatabaseVC(user.pk)
     else:
         if(user.entrepreneur == 2):
             form =  EntrepreneurForm()
         else:
             form =  VentureCapitalForm()
+    return render(request, "../../users/templates/users/questions.html", {"user" : user, "user_answers": user_answers, "user_form": form, "user_info": user_info})
     # company_name = form.cleaned_data['company_name']
 
-# Generates a row @ matches database w/ match scores.
+# Generates a row @ matches database w/ match scores - Entrepreneur.
 def MakeMatchInDatabaseE(e_id):
     all_v = VentureCapital.objects.all()
     # The `iterator()` method ensures only a few rows are fetched from
@@ -64,4 +66,18 @@ def MakeMatchInDatabaseE(e_id):
         score = AlexMatchAlgo(e_id, v.pk)
         entrep = Entrepreneur.objects.get(pk=e_id)
         venture = VentureCapital.objects.get(pk=v.pk)
-        Matches(entrepreneur=entrep, venturecapital=venture, match_score=score)
+        match = Matches(entrepreneur=entrep, venturecapital=venture, match_score=score)
+        match.save()
+
+
+# Generates a row @ matches database w/ match scores - Venture Capitalist.
+def MakeMatchInDatabaseVC(vc_id):
+    all_e = Entrepreneur.objects.all()
+    # The `iterator()` method ensures only a few rows are fetched from
+    # the database at a time, saving memory.
+    for e in all_e.iterator():
+        score = algo.pairing(e.pk, vc_id)
+        entrep = Entrepreneur.objects.get(pk=e.pk)
+        venture = VentureCapital.objects.get(pk=vc_id)
+        match = Matches(entrepreneur=entrep, venturecapital=venture, match_score=score)
+        match.save()
