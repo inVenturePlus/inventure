@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'social_django',
     'social.apps.django_app.default',
     'avatar',
+    'pinax.notifications',
+    'pinax.messages',
 ]
 
 MIDDLEWARE = [
